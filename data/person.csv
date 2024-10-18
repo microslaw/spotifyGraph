@@ -1,1 +1,11 @@
-id,name,surname,day_of_birth,gender,
+index,day_of_birth,gender,name,surname
+0,1990-01-04,,Kathy,Blair
+1,1992-05-31,,Diane,Nolan
+2,1966-07-20,,Nicole,Sutton
+3,1981-05-31,,Lisa,Kennedy
+4,1998-08-02,,Danielle,Garcia
+5,1996-11-10,,Susan,Hamilton
+6,1991-05-08,,Victoria,Carr
+7,1984-06-07,,Rhonda,Durham
+8,1996-03-23,,Stephanie,Levy
+9,1988-02-28,,Emily,Woods
