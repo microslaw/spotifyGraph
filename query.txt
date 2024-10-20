@@ -1,0 +1,35 @@
+#Which songs have the best average rating
+MATCH (n)-[r:RATES]->(m)
+RETURN m.title, AVG(toInteger(r.rating)) AS avg_rating
+ORDER BY avg_rating DESC
+
+#What artist have the biggest number of songs
+MATCH (n)-[r:WRITTEN]->(m)
+RETURN n.name, COUNT(*) AS number_of_songs
+ORDER BY COUNT(*) DESC
+LIMIT 3
+
+#What person/artist has the most followers
+MATCH (n)-[r:FOLLOWS]->(m)
+RETURN m.name, COUNT(*) AS number_of_followers
+ORDER BY COUNT(*) DESC
+
+#What is the correlation between the listener's and the artist's gender
+MATCH (n)-[r:RATES]->(m), (o)-[w: WRITTEN]->(m)
+RETURN n.gender AS listener_gender, o.gender AS artists_gender, COUNT(*) AS number_of_occurances
+ORDER BY COUNT(*) DESC
+
+#What genre has the best average rating
+MATCH (n)-[r:RATES]->(m)
+RETURN m.genre, AVG(toInteger(r.rating)) AS average_rating
+ORDER BY average_rating DESC
+
+#What artist has the best average rate for their songs?
+MATCH (n)-[r:RATES]->(o), (m)-[w:WRITTEN]->(o)
+RETURN m.nickname, AVG(toInteger(r.rating)) AS average_rating
+ORDER BY average_rating DESC
+
+#What listener made the biggest number of rates
+MATCH (n)-[r:RATES]->(o)
+RETURN n.name, COUNT(*) AS number_of_rates
+ORDER BY number_of_rates DESC
