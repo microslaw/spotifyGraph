@@ -33,3 +33,11 @@ ORDER BY average_rating DESC
 MATCH (n)-[r:RATES]->(o)
 RETURN n.name, COUNT(*) AS number_of_rates
 ORDER BY number_of_rates DESC
+
+#What is the standard deviation and average rate of songs
+MATCH (n)-[r:RATES]->(m)
+RETURN stDev(r.rating) AS standard_deviation_of_rate, AVG(r.rating) AS average_rate
+
+#What is the maximum rate
+MATCH (n)-[r:RATES]->(m)
+RETURN MAX(r.rating) AS maximum_rate
