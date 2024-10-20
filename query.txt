@@ -36,7 +36,7 @@ ORDER BY number_of_rates DESC
 
 #What is the standard deviation and average rate of songs
 MATCH (n)-[r:RATES]->(m)
-RETURN stDev(r.rating) AS standard_deviation_of_rate, AVG(r.rating) AS average_rate
+RETURN stDev(toInteger(r.rating)) AS standard_deviation_of_rate, AVG(toInteger(r.rating)) AS average_rate
 
 #What is the maximum rate
 MATCH (n)-[r:RATES]->(m)
